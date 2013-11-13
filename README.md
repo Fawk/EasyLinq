@@ -38,8 +38,11 @@ $result = in($list)->where('$salary > 10000')->select('$firstname');
 
 Which will yield this:
 
+```php
+
     Array ( 
               [0] => Sarah 
               [1] => Clarence 
           )
 
+```
