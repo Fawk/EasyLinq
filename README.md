@@ -28,9 +28,9 @@ class Person {
     }
 }
 
-$list = new array(new Person('John', 'Doe', 10000), 
-        new Person('Sarah', 'Smith', 12000), 
-        new Person('Clarence', 'Anderson', 16000));
+$list = array(new Person('John', 'Doe', 10000), 
+              new Person('Sarah', 'Smith', 12000), 
+              new Person('Clarence', 'Anderson', 16000));
         
 $result = in($list)->where('$salary > 10000')->select('$firstname');
 ```
