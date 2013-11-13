@@ -13,6 +13,8 @@ Examples:
 
 ´´´php
 
+    <?
+
     require_once("EasyLinq.php");
 
     class Person {
