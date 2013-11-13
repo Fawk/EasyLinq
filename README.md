@@ -12,6 +12,7 @@ Examples:
 ---------
 
 ´´´php
+
     require_once("EasyLinq.php");
 
     class Person {
@@ -34,4 +35,5 @@ Examples:
             new Person('Clarence', 'Anderson', 16000));
             
     $result = in($list)->where('$salary > 10000')->select('$firstname');
+
 ´´´
