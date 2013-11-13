@@ -36,3 +36,10 @@ $list = array(new Person('John', 'Doe', 10000),
 $result = in($list)->where('$salary > 10000')->select('$firstname');
 ```
 
+Which will yield this:
+
+    Array ( 
+              [0] => Sarah 
+              [1] => Clarence 
+          )
+
