@@ -11,7 +11,9 @@ And start writing out the magic.
 Examples:
 ---------
 
-php <?php require_once("EasyLinq.php");
+<?php 
+
+    require_once("EasyLinq.php");
 
     class Person {
 
@@ -34,4 +36,4 @@ php <?php require_once("EasyLinq.php");
             
     $result = in($list)->where('$salary > 10000')->select('$firstname');
 
-´´´
+
