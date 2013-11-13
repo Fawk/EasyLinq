@@ -11,9 +11,7 @@ And start writing out the magic.
 Examples:
 ---------
 
-´´´php
-
-    <?
+php <?php
 
     require_once("EasyLinq.php");
 
