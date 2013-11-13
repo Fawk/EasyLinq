@@ -15,13 +15,14 @@ Examples:
 
 require_once("EasyLinq.php");
 
-class Person {
-
+class Person 
+{
     public $firstname;
     public $lastname;
     public $salary;
     
-    public function __construct($fn, $ln, $s) {
+    public function __construct($fn, $ln, $s) 
+    {
         $this->firstname = $fn;
         $this->lastname = $ln;
         $this->salary = $s;
