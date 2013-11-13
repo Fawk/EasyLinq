@@ -13,6 +13,7 @@ Examples:
 
 ```php
 
+
 require_once("EasyLinq.php");
 
 class Person 
@@ -34,6 +35,7 @@ $list = array(new Person('John', 'Doe', 10000),
               new Person('Clarence', 'Anderson', 16000));
         
 $result = in($list)->where('$salary > 10000')->select('$firstname');
+
 ```
 
 Which will yield this:
@@ -45,3 +47,37 @@ Which will yield this:
               [1] => Clarence 
           )
 ```
+
+Various other functions you can use:
+------------------------------------
+
+```php
+
+    /* Selecting on multiple statments */
+    $result = in($list)->where('$salary' > 12000')->_or('$salary < 14000')->_and('$lastname contains Smi')->select();
+    
+    /* Result */
+    Array 
+            ( 
+                [1] => Person Object 
+                    ( 
+                        [firstname] => Sarah 
+                        [lastname] => Smith 
+                        [salary] => 12000 
+                    ) 
+                [2] => Person Object 
+                    ( 
+                        [firstname] => Clarence 
+                        [lastname] => Anderson 
+                        [salary] => 16000 
+                    ) 
+            )
+
+```
+
+Various string expressions
+
+* contains
+* startswith
+* endswith
+* < , > , <= , >= , == (Using these on string values will compare against the length of the string)
