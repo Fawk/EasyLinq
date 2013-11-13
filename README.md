@@ -54,7 +54,7 @@ Various other functions you can use:
 ```php
 
     /* Selecting on multiple statments */
-    $result = in($list)->where('$salary' > 12000')->_or('$salary < 14000')->_and('$lastname contains Smi')->select();
+    $result = in($list)->where('$salary > 12000')->_or('$salary < 14000')->_and('$lastname contains Smi')->select();
     
     /* Result */
     Array 
