@@ -44,5 +44,4 @@ Which will yield this:
               [0] => Sarah 
               [1] => Clarence 
           )
-
 ```
