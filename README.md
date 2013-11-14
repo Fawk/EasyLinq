@@ -84,6 +84,9 @@ Various other functions you can use:
     $result = in($list)->where('$salary > 9000')->first()->select();
     $result = in($list)->where('$salary > 9000')->last()->select();
     
+    /* You can also use function return values instead of member variables - to do so use ~ instead of $ */
+    $result = in($list)->where('~getPrivateProperty > 9000')->select('~AnotherPrivateProperty');
+    
     /* And anonymous objects */
     $result = in($list)->where('$salary > 9000')->select('new { Property = $membervarible, Another = $another }');
 
