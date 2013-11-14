@@ -209,6 +209,7 @@
             
             for($i = 0; $i < count($e); $i++)
             {
+                $concats[$k] = array();
                 if($e[$i] == "+" && strpos($e[$i -1], '$'))
                 {
                     if(strpos($e[$i + 1], '$'))
