@@ -213,7 +213,7 @@
                 {
                     if(strpos($e[$i + 1], '$'))
                     {
-                        $this->_exists(substr($e[$i + 1], 1, strlen($e[$i + 1) - 1)], $list[0], "$");
+                        $this->_exists(substr($e[$i + 1], 1, strlen($e[$i + 1] - 1), $list[0], "$");
                         $concats[$k][] = $e[$i + 1];
                     }
                     else
