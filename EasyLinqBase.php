@@ -183,6 +183,7 @@
         $return = array(); 
         $keys = array();
         $values = array();
+        $concats = array();
         if(strpos($expr, ',') !== false)
         {
             $ex = explode(',', $expr);
@@ -200,7 +201,28 @@
             {
                 throw new Exception(get_class($this) . " error: Numeric key is not allowed in select!");
             }
+            if($e[1] != "=")
+            {
+                throw new Exception(get_class($this) . " error: Invalid anonymous expression, use = when pointing properties.");
+            }
             $keys[] = $e[0];
+            
+            for($i = 0; $i < count($e); $i++)
+            {
+                if($e[$i] == "+" && strpos($e[$i -1], '$'))
+                {
+                    if(strpos($e[$i + 1], '$'))
+                    {
+                        $this->_exists(substr($e[$i + 1], 1, strlen($e[$i + 1) - 1)], $list[0], "$");
+                        $concats[$k][] = $e[$i + 1];
+                    }
+                    else
+                    {
+                        $concats[$k][] = $e[$i + 1];
+                    }
+                }
+            }
+            
             $var = substr($e[2], 1, strlen($e[2]) - 1);
             $this->_exists($var, $list[0], "$");
             $values[] = $var;
@@ -210,7 +232,15 @@
             $obj = new stdClass;
             for($j = 0; $j < count($keys); $j++)
             {
-                $obj->$keys[$j] = $list[$i]->$values[$j];
+                $extra = "";
+                if(isset($concats[$j]) && count($concats[$j]) != 0)
+                {
+                    foreach($concats[$j] as $ck => $cv)
+                    {
+                        $extra .= $cv;
+                    }
+                }
+                $obj->$keys[$j] = $list[$i]->$values[$j] . $extra;
             }
             $return[] = $obj;
         }
