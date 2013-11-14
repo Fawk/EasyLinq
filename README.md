@@ -72,6 +72,20 @@ Various other functions you can use:
                         [salary] => 16000 
                     ) 
             )
+            
+    /* orderBy - desc/asc */
+    $result = in($list)->where('$salary > 9000')->orderBy('$lastname asc')->select();
+    
+    /* skip/take */
+    $result = in($list)->where('$salary > 9000')->skip(2)->select();
+    $result = in($list)->where('$salary > 9000')->take(1)->select();
+    
+    /* first/last */
+    $result = in($list)->where('$salary > 9000')->first()->select();
+    $result = in($list)->where('$salary > 9000')->last()->select();
+    
+    /* And anonymous objects */
+    $result = in($list)->where('$salary > 9000')->select('new { Property = $membervarible, Another = $another }');
 
 ```
 
