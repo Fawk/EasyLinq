@@ -221,6 +221,10 @@
                         $concats[$k][] = $e[$i + 1];
                     }
                 }
+                else
+                {
+                    $concats[$k][] = $e[$i + 1];
+                }
             }
             
             $var = substr($e[2], 1, strlen($e[2]) - 1);
